@@ -1,0 +1,134 @@
+@import "variables/variables";
+
+.file {
+  position: relative;
+  margin-top: 20px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 4fr repeat(4, 1fr);
+  border-bottom: 1px solid $primary_color;
+  animation: slideX 1s ease 0s 1 normal forwards;
+
+  &_name {
+    grid-column-start: 2;
+  }
+
+  &_date {
+    grid-column-start: 3;
+  }
+
+  &_size {
+    grid-column-start: 4;
+  }
+ &_download, &_delete{
+   img{
+     height: 40px;
+   }
+   &:hover{
+     cursor: pointer;
+     transform: scale(1.2);
+   }
+ }
+  &_download {
+    grid-column-start: 5;
+  }
+
+  &_download_tile {
+    flex-direction: row;
+  }
+
+  &_delete {
+    grid-column-start: 6;
+  }
+
+  &_delete_tile, &_download_tile {
+      img{
+        height: 40px;
+      }
+      &:hover{
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+  }
+
+  img {
+    max-height: 40px;
+    padding-bottom: 5px;
+
+  }
+}
+
+@keyframes slideX {
+  0% {
+    opacity: 0;
+    transform: rotateX(-100deg);
+    transform-origin: top;
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+    transform-origin: top;
+  }
+}
+
+.fileWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  grid-auto-flow: row;
+  grid-gap: 15px;
+}
+
+.file__tile {
+  overflow: hidden;
+  border: solid 2px cadetblue;
+  display: flex;
+  justify-content: start;
+  padding: 5px;
+  flex-direction: column;
+  cursor: pointer;
+  align-items: center;
+  animation: slideY 1s ease 0s 1 normal forwards;
+
+
+  img {
+    max-height: 120px;
+    margin: 5px 0;
+
+  }
+
+  &_icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+
+@keyframes slideY {
+  0% {
+    opacity: 0;
+    transform: rotateY(-100deg);
+    transform-origin: top;
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+    transform-origin: top;
+  }
+}
+
+@media (max-width: 720px) {
+.file{
+  margin-top: 5%;
+}
+  .file_date, .file_size{
+    display: none;
+  }
+  .fileWrapper{
+    display: flex;
+    flex-direction: column;
+  }
+}

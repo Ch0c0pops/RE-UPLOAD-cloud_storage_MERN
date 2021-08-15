@@ -1,0 +1,61 @@
+@import '../styles/variables/variables';
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+
+  &__returnBtn {
+    display: flex;
+    align-items: center;
+
+    img {
+      padding-right: 10px;
+      width: 50px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__input, button {
+    margin: 0 10px;
+    padding: 0 3px;
+    height: 40px;
+    min-width: 150px;
+    border-radius: 5px;
+    background-color: rgba($primary_color, 0.5);
+    font-size: large;
+    box-shadow: $box_shadow;
+
+    &:hover {
+      background-color: $primary_color;
+    }
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+
+    input {
+      display: none;
+    }
+  }
+
+  button {
+    border: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .profile{
+    display: flex;
+    flex-direction: column;
+
+    &__input, button{
+      margin-bottom: 10px;
+    }
+  }
+}
